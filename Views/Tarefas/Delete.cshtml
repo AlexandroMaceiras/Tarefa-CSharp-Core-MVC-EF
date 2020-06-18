@@ -1,0 +1,35 @@
+@model TarefaItem
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Deletar Tarefa</title>
+    </head>
+    <body>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model =>model.EstaCompleta)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model =>model.EstaCompleta)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model =>model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model =>model.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model =>model.DataConclusao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model =>model.DataConclusao)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Deletar Tarefa" class="btn btn-danger" />
+            <a asp-action="Index">Retornar</a>
+        </form>
+    </body>
+</html>

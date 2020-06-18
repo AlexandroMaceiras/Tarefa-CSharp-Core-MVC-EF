@@ -1,0 +1,181 @@
+@{
+    ViewData["Title"] = "xxx";
+}
+
+@* <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div> *@
+<div class="jumbotron">
+  <h1 class="display-4">Manual C# Core e VS Code</h1>
+  <p class="lead">Minha apostila pra lembrar sempre</p>
+  <hr class="my-4">
+  <div class="asdasd">
+      <span>
+      
+<b>CRIAR PROJETO MVC CORE COM AUTENTICAÇÃO no 2.0:</br>
+===============================================</br>
+</b>dotnet new mvc --auth individual -o NOMEdirAserCRIADO</br>
+</br>
+<b>Outros:</br>
+=======</br>
+</b>dotnet new console</br>
+.</br>
+.</br>
+.</br>
+</br>
+<b>CERTIFICADO PRO CRHOME PARAR DE RECLAMAR DE SEGURANÇA:</br>
+======================================================</br>
+</b>dotnet dev-certs https --trust</br>
+</br>
+<b>Comandos que eu tenho uma PANE MENTAL e tenho que ficar lembrando!!!!!</br>
+=======================================================================</br>
+</b>Abrir janela cmd: [Control] + [`]</br>
+ctor + TAB => cria um public class inteiro</br>
+public async Task<> + await = ASSINCRONAS.</br>
+dotnet build</br>
+dotnet run</br>
+dotnet watch run</br>
+dotnet --version</br>
+dotnet restore</br>
+dotnet publish -o ./deploy (Cria um diretório (Ex.: deploy) com o DEPLOY contendo tudo necessário para publicar com a criação de um executável até que já sobe o servidor sem neessidade do IIS)</br>
+dotnet publish -configuration Release --output dist</br>
+ABRIR O CODE NO DIRETÓRIO COM COMANDO: code .</br>
+</br>
+[F5] debuga direto</br>
+Injeção de Dependencia DI - já existe</br>
+</br>
+</br>
+<b>DI na startup.cs (Em Configure Services)</br>
+===========================================</br>
+</b>//Registrando a DI (Injeção de Dependência)</br>
+services.AddTransient< ITarefaItemService,TempTarefaItemService>();</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Add...</br>
+<b>Tipos de Injeção de Dependencia</br>
+===============================</br>
+</b>Transient objects are always different; a new instance is provided to every controller and every service.</br>
+Scoped objects are the same within a request, but different across different requests.</br>
+Singleton objects are the same for every object and every request.</br>
+		</br>
+</br>
+<b>=====================================================================</br>
+As classes de declaração de variáveis ou tabelas são as classes POCO.</br>
+=====================================================================</br>
+</b>Essas instruções geram código:</br>
+Atalhos: </br>
+prop [TAB] [TAB] => public int MyProperty { get; set; }</br>
+ctor [TAB] [TAB] => public ClassName(Parameters)</br>
+<b>=======================================================================</br></b>
+</br>
+<b>Ferramentas de ORM - Object Relational Mapper</br>
+=============================================</br>
+</b>EF - Entity Framework Core 2.0 => Pode ser usado até em xamarin e windows forms. EM Code First ou Database First, Shadow properties, alternate keys, etc! </br>
+NHibernate - Não conheço.</br>
+</br>
+<b>Ferramentas de linha de comando:</br>
+================================</br>
+</b>NET Core CLI -> aquela que usamos tanto no VS CODE quanto no comand do Windows.</br>
+</br>
+<b>Instalar EF por linha de comando:</br>
+=================================</br>
+</b>NUGE: Install-Package Microsoft.EntityFrameworkCore.SqlServer</br>
+EF no CLI: dotnet add package Microsoft.EntityFrameworkCore.SqlServer</br>
+EF Core Tools no CLI: dotnet add package Microsoft.EntityFrameworkCore.Design</br>
+</br>
+</br>
+<b>No EF Core:</br>
+===========</br></b>
+DBContext - Banco de Dados</br>
+DBSet - Tabelas</br>
+LINQ (Com lambda)</br>
+Code First - é usando as classes POCO's e cria o banco. (Tem Migrations!)</br>
+Database Fist - é quando importamos o BD pra dentro do EF.</br>
+</br>
+<b>No código do NOMEDOPROGRAMA.csproj incluir:</br>
+===========================================</br>
+
+< ItemGroup></br>
+&nbsp;&nbsp;< DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" / ></br>
+&nbsp;&nbsp; DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.2" / ></br>
+&nbsp;&nbsp;< DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" / ></br>
+< /ItemGroup ></br>
+</b>
+</br>
+Se não existir instalar cada um dos 3 com add package Microsoft...</br>
+Se não colocar esses malditos, não se consegue fazer nada pelo NET CLI do EF como por exemplo o Migrations e muito mais.</br>
+</br><b>
+Migrations: (No Core 3.1 o bd que ele usa para login é o SQLite, e não dá para usar as migrations que ele cria, no SQL Server, </br>
+deve-se apagar elas e criar uma nova migration após criar a conexão com o SQL Server se vc quiser usar os logins que ele cria!)</br>
+=====================================================================</b></br>
+dotnet ef migrations NOMEDAMIGRATION (Cria a migração)</br>
+dotnet ef database update (Executa a migração)</br>
+dotnet ef database update 0 (Retorna todas as migrações) </br>
+dotnet ef database update "NOME DA MIGRAÇÃO" (Executa/Revrte a migração com o nome deterinado)</br>
+dotnet ef migrations remove (desfaz a última migração e APAGA ELA JUNTO )</br>
+dotnet ef database drop (deleta o banco de dados)</br>
+dotnet ef migrations script (Não sei aindo como funciona!)</br>
+</br><b>
+Scaffolding (database first)</br>
+============================</br></b>
+dotnet ef dbcontext scaffolding (gera as classes das entidades e do contexto a partir de um BD existente)</br>
+</br><b>
+RAZOR:</br>
+======</br></b>
+Tudo é com 1 @@ na frente: @@model NOMEDAMODEL</br>
+</br>
+TAG-HELPERS - São do RAZOR (Facilitam a entrada de HTML)</br>
+&nbsp;asp-controler="nome da view"</br>
+&nbsp;asp-action="nome da action"</br>
+&nbsp;asp-route-NOMEPARÂMETRO="VALOR PARÂMETRO"</br>
+&nbsp;< input asp-for="NOME".../ ></br>
+&nbsp;< label asp-for="NOME"... ></br>
+TAG HELPERS são usadas em formulários VIEW de Razor</br>
+</br>
+EX:</br>
+< form asp-controller="Tarefas" asp-action="Index" mothod="post" ></br>
+&nbsp;< label asp-for="nome">< input asp-for="nome" ></br>
+&nbsp;< button type="submit">Enviar</ button ></br>
+< /form ></br>
+</br>
+BOTTSTRAP Tem aqueles class FUDIDOS que abre janelas e tudo mais!</br>
+</br>
+<b>NO 3.0 MUDOU MUITO:</br>
+===================</br></b>
+</br>
+<b>CRIAR PROJETO MVC CORE COM AUTENTICAÇÃO no 3.0:</br>
+=====================================================================================</br></b>
+dotnet new mvc --auth individual -o NOMEdirAserCRIADO</br>
+</br>
+<b>NET CLI instalação:</br>
+===================</br></b>
+dotnet tool install --global dotnet-ef</br>
+</br>
+<b>SQL Server instalação:</br>
+======================</br></b>
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer</br>
+</br>
+--Muda-se ou se inclui outra conexão com BD no appsettings.json </br>
+--No Startup.cs é só trocar o nome da conexão vinda do appsetings.json e mudar de UseSQLite para UseSQLServer no:</br>
+services.AddDbContext< ApplicationDbContext>(options =></br>
+options.UseSqlServer(</br>
+Configuration.GetConnectionString("AleConnection")));</br>
+</br>
+--Executa-se 2 vezes o migrations: dotnet ef migrations remove</br>
+para deletar as migrations de SQLita</br>
+</br>
+--Cria-se uma migration: dotnet ef migrations add NOMEDAMIGRATION</br>
+--Executa-se a migration: dotnet ef database update</br>
+Assim a base de dados do SQLite para login se instala no SQLserver</br>
+</br>
+Adicionar icones</br>
+Adicionar SQL Server (mssql)</br>
+</br>
+<b>PRONTO 3.0 pronto pra continuar a desenvolver!!!!!</br>
+=====================================================================================</br></b>
+ </span>
+ </br>
+  </div>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" target="" href="Index" role="button">Voltar</a>
+  </p>
+</div>

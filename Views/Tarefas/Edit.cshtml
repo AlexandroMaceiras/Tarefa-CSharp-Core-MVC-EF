@@ -1,0 +1,47 @@
+@model TarefaItem
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width">
+        <title>Editar Tarefa</title>
+    </head>
+    <body>
+
+        <h2>Editando Tarefa</h2>
+        <hr/>
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit" asp-controller="Tarefas" method="POST">
+                    <input type="hidden" asp-for="Id">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="EstaCompleta" class="control-label">
+                                <input asp-for="EstaCompleta" /> @Html.DisplayNameFor(model => model.EstaCompleta)
+                            </label>
+                        </div>
+                    </div>  
+
+                    <div class="form-group">
+                        <b><label asp-for="Nome" class="control-label"></label></b>
+                        <input asp-for="Nome" class="form-control"/>
+                        <span asp-validation-for="Nome" class="text-danger"></span>
+                    </div>         
+                    <div class="form-group">
+                        <label asp-for="DataConclusao" class="control-label"></label>
+                        <input asp-for="DataConclusao" class="form-control"/>
+                        <span asp-validation-for="DataConclusao" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Salvar Alteração" class="btn btn-success"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <a asp-action="Index">Retornar</a>
+        </div>
+    </body>
+</html>
